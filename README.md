@@ -1,6 +1,6 @@
 # ts-path-mapping
 
-A npm package to automate __path mapping__ in typescript modules, using only the `tsconfig.json` file. This package implements [module-alias](https://www.npmjs.com/package/module-alias).
+A npm package to automate __path mapping__ in typescript modules, using only the `tsconfig.json` file. This package implements [module-alias](https://www.npmjs.com/package/module-alias) and [comment-json](https://www.npmjs.com/package/comment-json) for the `tsconfig.json` parsing.
 
 
 ## Disclaimer
@@ -14,7 +14,7 @@ First install the package:
 npm i --save ts-path-mapping
 ```
 
-Later, configure your tsconfig:
+Later, configure your tsconfig like this format (remember use `"/*"` at the end of every alias key and value):
 ```json
 {
   "compilerOptions": {
@@ -30,7 +30,7 @@ Later, configure your tsconfig:
 }
 ```
 
-Finally, in your index.ts (or whatever is your boot file) at the first line:
+Finally, in your `index.ts` (or whatever is your boot file) at the first line:
 
 ```ts
 import 'ts-path-mapping';   // THIS IS REQUIRED
