@@ -1,6 +1,6 @@
 {
   "name": "ts-path-mapping",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Adds the path aliases declared in tsconfig.json using module-alias package.",
   "main": "dist/index.js",
   "scripts": {
@@ -8,6 +8,10 @@
     "test": "rmdir .\\dist /s /q && tsc && cls && mocha ./dist/**/*.test.js"
   },
   "author": "sleep-written",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sleep-written/ts-path-mapping"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.2.15",
@@ -23,7 +27,8 @@
     "module-alias": "^2.2.2"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "keywords": [
     "typescript",
