@@ -1,0 +1,1 @@
+export type TypeValue = "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function";

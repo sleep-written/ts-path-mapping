@@ -1,10 +1,11 @@
 {
   "name": "ts-path-mapping",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Adds the path aliases declared in tsconfig.json using module-alias package.",
   "main": "dist/index.js",
   "scripts": {
-    "prepare": "tsc"
+    "prepare": "tsc",
+    "test": "rmdir .\\dist /s /q && tsc && cls && mocha ./dist/**/*.test.js"
   },
   "author": "sleep-written",
   "license": "MIT",
@@ -25,7 +26,11 @@
     "dist"
   ],
   "keywords": [
-    "typescript", "path", "mapping",
-    "path-mapping", "alias", "module-alias"
+    "typescript",
+    "path",
+    "mapping",
+    "path-mapping",
+    "alias",
+    "module-alias"
   ]
 }

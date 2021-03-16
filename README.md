@@ -22,11 +22,26 @@ Later, configure your tsconfig:
     "rootDir": "./src",
     "baseUrl": "./src",
     "paths": {
-        "@key-01/*": [ "folder-01" ],
-        "@key-02/*": [ "folder-02" ],
-        "@key-03/*": [ "folder-03" ],
+        "@key-01/*": [ "folder-01/*" ],
+        "@key-02/*": [ "folder-02/*" ],
+        "@key-03/*": [ "folder-03/*" ],
     }
   }
 }
+```
 
+Finally, in your index.ts (or whatever is your boot file) at the first line:
+
+```ts
+import 'ts-path-mapping';   // THIS IS REQUIRED
+
+// Import your resources...
+import { jajaja } from '@key-01/jajaja';
+import { gegege } from '@key-02/gegege';
+import { jojojo } from '@key-03/jojojo';
+
+// ...all use it as your needs
+jajaja();
+gegege();
+jojojo();
 ```
