@@ -1,6 +1,8 @@
 import { addAlias } from 'module-alias';
+
 import { resolve, join } from 'path';
 import { TsConfigJson } from './lib';
+import { isTsNode } from './lib/is-ts-node';
 
 const file = new TsConfigJson(resolve('.', 'tsconfig.json'));
 const json = file.read();
@@ -13,9 +15,11 @@ for (let name of Object.keys(paths)) {
     let path = paths[name][0];
     name = name.replace(/(\\|\/)+\*$/gi, '');
     path = path.replace(/(\\|\/)+\*$/gi, '');
-
     path = join(baseUrl, path);
-    path = path.replace(rootDir, distDir);
+
+    if (!isTsNode()) {
+        path = path.replace(rootDir, distDir);
+    }
 
     addAlias(name, path);
 }

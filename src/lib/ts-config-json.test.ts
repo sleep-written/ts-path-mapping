@@ -1,8 +1,8 @@
 import { assert } from 'chai';
 
-import { TsConfigJson } from './tsConfigJson';
-import { Json } from './json';
+import { TsConfigJson } from './ts-config-json';
 import * as Errors from './error';
+import { Json } from './json';
 
 type ErrorConstructor = new(...args: any[]) => Error;
 function testError(file: Json, errClass: ErrorConstructor): void {
@@ -14,7 +14,7 @@ function testError(file: Json, errClass: ErrorConstructor): void {
     }
 }
 
-describe('Test "./src/lib/tsConfig"', () => {
+describe('Test "./src/lib/ts-config-json"', () => {
     after(() => {
         const file = new TsConfigJson('./tsconfig.test.json');
         if (file.exist) {

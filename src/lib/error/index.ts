@@ -1,8 +1,8 @@
-export { FileNotFound } from './fileNotFound';
-export { InvalidJson } from './invalidJson';
-export { CannotWriteJson } from './cannotWriteJson';
-export { CannotDeleteJson } from './cannotDeleteJson';
-export { WrongJsonProperty } from './wrongJsonProperty';
-export { EmptyJsonProperty } from './emptyJsonProperty';
-export { WrongAliasKey } from './wrongAliasKey';
-export { WrongAliasValue } from './wrongAliasValue';
+export { FileNotFound } from './file-not-found';
+export { InvalidJson } from './invalid-json';
+export { CannotWriteJson } from './cannot-write-json';
+export { CannotDeleteJson } from './cannot-delete-json';
+export { WrongJsonProperty } from './wrong-json-property';
+export { EmptyJsonProperty } from './empty-json-property';
+export { WrongAliasKey } from './wrong-alias-key';
+export { WrongAliasValue } from './wrong-alias-value';

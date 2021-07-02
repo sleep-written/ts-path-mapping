@@ -1,2 +1,2 @@
-export { TsConfig } from './tsConfig';
-export { TypeValue } from './typeValue';
+export { TsConfig } from './ts-config';
+export { TypeValue } from './type-value';
