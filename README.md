@@ -48,7 +48,7 @@ npx ts-node --require ts-path-mapping/register ./src/index.ts
 
 ## How to detect
 When this package is launched, the `process` object is altered adding some property with global symbols as key. The descriptions of that symbol keys are:
-- `ts-path-mapping.registered`: is `true` when this library was called using `--require` argument
+- `ts-path-mapping.registered`: is `true` when this library was called using `--require` argument.
 - `ts-path-mapping.required`: is `true` when this library has been called.
 
 If do you want to check the value of any key, you can write, for example:
