@@ -1,4 +1,4 @@
-export class FileNotFound extends Error {
+export class FileNotFoundError extends Error {
     constructor(filename?: string) {
         super();
 

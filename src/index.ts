@@ -1,25 +1,15 @@
-import { addAlias } from 'module-alias';
+import { execute } from './lib';
 
-import { resolve, join } from 'path';
-import { TsConfigJson } from './lib';
-import { isTsNode } from './lib/is-ts-node';
+// Exports system symbols
+export const REGISTERED = Symbol.for('ts-path-mapping.registered');
+export const REQUIRED = Symbol.for('ts-path-mapping.required');
 
-const file = new TsConfigJson(resolve('.', 'tsconfig.json'));
-const json = file.read();
-const rootDir = resolve(json.compilerOptions.rootDir);
-const distDir = resolve(json.compilerOptions.outDir);
-const baseUrl = resolve(json.compilerOptions.baseUrl);
+// Read registered property
+const registered = Object
+    .getOwnPropertySymbols(process)
+    .some(x => x.description === REGISTERED.description);
 
-const paths = json.compilerOptions.paths;
-for (let name of Object.keys(paths)) {
-    let path = paths[name][0];
-    name = name.replace(/(\\|\/)+\*$/gi, '');
-    path = path.replace(/(\\|\/)+\*$/gi, '');
-    path = join(baseUrl, path);
-
-    if (!isTsNode()) {
-        path = path.replace(rootDir, distDir);
-    }
-
-    addAlias(name, path);
+// Init process
+if (!registered) {
+    execute();
 }

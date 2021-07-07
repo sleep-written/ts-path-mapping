@@ -27,17 +27,17 @@ describe('Test "./src/lib/ts-config-json"', () => {
         assert.isFalse(file.exist);
 
         file.write({ });
-        testError(file, Errors.WrongJsonProperty);
+        testError(file, Errors.WrongJsonPropertyError);
 
         file.write({ compilerOptions: null });
-        testError(file, Errors.WrongJsonProperty);
+        testError(file, Errors.WrongJsonPropertyError);
 
         file.write({
             compilerOptions: {
                 baseUrl: './dist',
             }
         });
-        testError(file, Errors.WrongJsonProperty);
+        testError(file, Errors.WrongJsonPropertyError);
 
         file.write({
             compilerOptions: {
@@ -46,7 +46,7 @@ describe('Test "./src/lib/ts-config-json"', () => {
                 baseUrl: './src',
             }
         });
-        testError(file, Errors.WrongJsonProperty);
+        testError(file, Errors.WrongJsonPropertyError);
 
         file.write({
             compilerOptions: {
@@ -56,7 +56,7 @@ describe('Test "./src/lib/ts-config-json"', () => {
                 paths: null
             }
         });
-        testError(file, Errors.WrongJsonProperty);
+        testError(file, Errors.WrongJsonPropertyError);
 
         file.write({
             compilerOptions: {
@@ -68,7 +68,7 @@ describe('Test "./src/lib/ts-config-json"', () => {
                 }
             }
         });
-        testError(file, Errors.WrongAliasKey);
+        testError(file, Errors.WrongAliasKeyError);
 
         file.write({
             compilerOptions: {
@@ -80,7 +80,7 @@ describe('Test "./src/lib/ts-config-json"', () => {
                 }
             }
         });
-        testError(file, Errors.WrongAliasValue);
+        testError(file, Errors.WrongAliasValueError);
     });
 
     it('Write a valid "./tsconfig.test.json"', () => {

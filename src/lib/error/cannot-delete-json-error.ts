@@ -1,4 +1,4 @@
-export class CannotDeleteJson extends Error {
+export class CannotDeleteJsonError extends Error {
     constructor(path?: string) {
         super();
 

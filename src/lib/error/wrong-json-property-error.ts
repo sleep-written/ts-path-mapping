@@ -1,6 +1,6 @@
 import { TypeValue } from '../interface';
 
-export class WrongJsonProperty extends Error {
+export class WrongJsonPropertyError extends Error {
     constructor(type: TypeValue | string, ...keys: string[]) {
         super();
         const str = keys.reduce((prev, curr, i) => {

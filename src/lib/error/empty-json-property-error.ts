@@ -1,4 +1,4 @@
-export class EmptyJsonProperty extends Error {
+export class EmptyJsonPropertyError extends Error {
     constructor(...keys: string[]) {
         super();
         const str = keys.reduce((prev, curr, i) => {

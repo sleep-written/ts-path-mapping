@@ -1,4 +1,4 @@
-export class CannotWriteJson extends Error {
+export class CannotWriteJsonError extends Error {
     constructor(path?: string) {
         super();
 

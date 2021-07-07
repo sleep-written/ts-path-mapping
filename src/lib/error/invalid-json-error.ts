@@ -1,4 +1,4 @@
-export class InvalidJson extends Error {
+export class InvalidJsonError extends Error {
     constructor(filename?: string) {
         super();
 

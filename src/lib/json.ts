@@ -2,7 +2,7 @@ import { join } from 'path';
 import { parse } from 'comment-json';
 
 import { readFileSync, writeFileSync, existsSync, unlinkSync } from 'fs';
-import { CannotDeleteJson, CannotWriteJson, FileNotFound, InvalidJson } from './error';
+import { CannotDeleteJsonError, CannotWriteJsonError, FileNotFoundError } from './error';
 
 export class Json<T = any> {
     private _path : string;
@@ -41,7 +41,7 @@ export class Json<T = any> {
         } catch (err) {
             switch (err.code as string) {
                 case 'ENOENT':
-                    throw new FileNotFound(this.filename);
+                    throw new FileNotFoundError(this.filename);
                 default:
                     throw err;
             }
@@ -60,7 +60,7 @@ export class Json<T = any> {
             const byte = Buffer.from(text, 'utf-8');
             writeFileSync(this._path, byte);
         } catch (err) {
-            throw new CannotWriteJson(this._path);
+            throw new CannotWriteJsonError(this._path);
         }
     }
 
@@ -71,7 +71,7 @@ export class Json<T = any> {
         try {
             unlinkSync(this._path);
         } catch (err) {
-            throw new CannotDeleteJson(this._path);
+            throw new CannotDeleteJsonError(this._path);
         }
     }
 }
